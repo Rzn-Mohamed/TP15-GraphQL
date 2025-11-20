@@ -4,9 +4,11 @@ import graphql.ErrorClassification;
 import graphql.GraphQLError;
 import graphql.language.SourceLocation;
 import graphql.schema.DataFetchingEnvironment;
-import org.hibernate.mapping.List;
 import org.springframework.graphql.execution.DataFetcherExceptionResolverAdapter;
 import org.springframework.stereotype.Component;
+
+import java.util.Collections;
+import java.util.List;
 
 @Component
 public class GraphQLExceptionHandler extends DataFetcherExceptionResolverAdapter {
@@ -20,7 +22,7 @@ public class GraphQLExceptionHandler extends DataFetcherExceptionResolverAdapter
 
             @Override
             public List<SourceLocation> getLocations() {
-                return null;
+                return Collections.emptyList();
             }
 
             @Override

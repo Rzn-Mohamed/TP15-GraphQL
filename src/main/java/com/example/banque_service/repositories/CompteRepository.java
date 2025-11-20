@@ -3,6 +3,7 @@ package com.example.banque_service.repositories;
 import com.example.banque_service.entities.Compte;
 import com.example.banque_service.entities.TypeCompte;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface CompteRepository extends JpaRepository<Compte, Long> {
     
     List<Compte> findBySoldeGreaterThan(double solde);
 
+    @Query("SELECT SUM(c.solde) FROM Compte c")
     double sumSoldes();
 }
